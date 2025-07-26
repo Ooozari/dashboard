@@ -3,8 +3,10 @@ import MyTask from '@/components/shared/MyTask'
 import DonutChart from '@/components/shared/DonutChart'
 import MyMeetings from '@/components/shared/MyMeetings'
 import React from 'react'
+import InvoiceOverview from '@/components/shared/InvoiceOverview'
 import TopNavBar from '@/layouts/TopNavBar'
 import { Input } from "@/components/ui/input"
+
 
 function Dashboard() {
     return (
@@ -41,12 +43,25 @@ function Dashboard() {
                             </div>
 
                             <div className='flex gap-1'>
-                                {/* My tasks */}
+                                {/*LEFT --- My tasks */}
                                 <div>
                                     <MyTask />
                                 </div>
-
-                                {/* My Meetings */}
+                                {/* MIDDLE -graphs + Invoices bars */}
+                                <div className='w-full flex flex-col gap-1'>
+                                    <div className='flex flex-col gap-1'>
+                                        <div>
+                                            {/* dounuct */}
+                                        </div>
+                                        <div>
+                                            {/* line */}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <InvoiceOverview />
+                                    </div>
+                                </div>
+                                {/*RIGHT --- My Meetings */}
                                 <div>
                                     <MyMeetings />
                                 </div>
