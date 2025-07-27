@@ -6,13 +6,14 @@ import React from 'react'
 import InvoiceOverview from '@/components/shared/InvoiceOverview'
 import TopNavBar from '@/layouts/TopNavBar'
 import { Input } from "@/components/ui/input"
+import IncomeVsExpenseChart from '@/components/shared/IncomeVsExpenseChart'
 
 
 function Dashboard() {
     return (
         <>
             <div>
-                <div className='bg-purple-50 h-screen w-full px-2'>
+                <div className='bg-blue-50  w-full px-2'>
                     {/* Top Navbar */}
                     <div>
                         <TopNavBar />
@@ -44,17 +45,17 @@ function Dashboard() {
 
                             <div className='flex gap-1'>
                                 {/*LEFT --- My tasks */}
-                                <div>
+                                <div className='pr-2'>
                                     <MyTask />
                                 </div>
                                 {/* MIDDLE -graphs + Invoices bars */}
                                 <div className='w-full flex flex-col gap-1'>
-                                    <div className='flex flex-col gap-1'>
-                                        <div>
-                                            {/* dounuct */}
+                                    <div className='flex gap-1 w-full'>
+                                        <div className='w-full'>
+                                            <DonutChart />
                                         </div>
-                                        <div>
-                                            {/* line */}
+                                        <div className='w-full'>
+                                            <IncomeVsExpenseChart />
                                         </div>
                                     </div>
                                     <div>
@@ -78,9 +79,7 @@ function Dashboard() {
 
 
 
-                    {/* <div>
-                        <DonutChart />
-                    </div> */}
+
                 </div>
             </div>
 

@@ -1,58 +1,50 @@
 'use client';
-import { Cell, Pie, PieChart, Legend, Tooltip } from 'recharts';
+
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { ArrowUpRight } from 'lucide-react';
 
 const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'In Progress', value: 12, color: '#FFA500' },
+  { name: 'Completed', value: 26, color: '#0088FE' },
+  { name: 'Not Completed', value: 58, color: '#D3D3D3' },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default function DonutChart() {
   return (
-    <div className="w-full flex justify-center">
-      <PieChart width={370} height={250}>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          innerRadius={40}
-          outerRadius={60}
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell
-              key={`cell-${entry.name}`}
-              fill={COLORS[index % COLORS.length]}
-            />
-          ))}
-        </Pie>
+    <div className="bg-white rounded-2xl p-4 w-full h-full  flex flex-col justify-between">
+      <div className="flex justify-between items-center">
+        <h1 className="text-black font-bold text-lg">Invoice Overview</h1>
+        <ArrowUpRight size={30} className="border border-lightGrey rounded-full p-1.5 size-8" />
+      </div>
 
- 
-        <Legend
-          layout="horizontal"
-          verticalAlign="bottom"
-          align="center"
-          wrapperStyle={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            margin: 'auto',
-            textAlign: 'center',
-          }}
-        />
+      <div className="flex justify-center items-center">
+        <PieChart width={250} height={200}>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius={50}
+            outerRadius={70}
+            paddingAngle={3}
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+      </div>
 
-        {/* Optional: Custom tooltip */}
-        <Tooltip
-          wrapperStyle={{
-
-            backgroundColor: '#ff0000',
-          }}
-        />
-      </PieChart>
+      <div className="flex flex-wrap justify-center gap-2">
+        {data.map((item, idx) => (
+          <div key={idx} className="flex items-center gap-2 text-sm leading-0">
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
+            <span className="text-darkGrey">{item.name}:</span>
+            <span className="text-darkGrey">{item.value}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

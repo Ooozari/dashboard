@@ -1,5 +1,5 @@
 import React from 'react'
-import { CircleCheck } from "lucide-react";
+import { Check} from "lucide-react";
 
 function Task({ bgColor, icon, heading, context }) {
     return (
@@ -12,15 +12,15 @@ function Task({ bgColor, icon, heading, context }) {
                     </div>
                     {/* Button Circle */}
                     <div>
-                        <CircleCheck />
+                        <Check size={30} className='border-2 border-darkGrey rounded-full p-0.5 size-6'/>
                     </div>
                 </div>
 
 
                 {/* H5 */}
-                <h5 className='text-Black font-bold text-md '>{heading}</h5>
+                <h5 className='text-Black font-bold text-sm '>{heading}</h5>
                 {/* context */}
-                <p className='text-Grey text-sm'>{context}</p>
+                <p className='text-Grey text-xs'>{context}</p>
             </div>
 
         </>

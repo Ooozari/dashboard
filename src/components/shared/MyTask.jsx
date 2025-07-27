@@ -56,7 +56,7 @@ function MyTask() {
         <>
             <div className='bg-White rounded-2xl p-2'>
                 {/* Headings */}
-                <div className='flex justify-between'>
+                <div className='flex justify-between mb-2'>
                     <h1 className='text-Black font-bold'>My Tasks</h1>
                     <div>
                         <Plus size={30} className='border-1 border-lightGrey rounded-full p-1' />
@@ -65,7 +65,7 @@ function MyTask() {
 
                 <div className='px-1'>
                     {/* Tabs */}
-                    <div>
+                    <div className=''>
                         <Tabs defaultValue="account" className="">
                             <TabsList className="gap-1 h-8">
                                 <TabsTrigger
@@ -84,27 +84,32 @@ function MyTask() {
                         </Tabs>
                     </div>
                     {/* Drop down */}
-                    <div className='py-2'>
+                    <div className="py-2.5">
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger className="flex items-center justify-between gap-2">
                                     {/* Task count on left */}
-                                    <div className="bg-Black text-White p-1.5 rounded-full text-sm w-7 h-7 flex items-center justify-center">
+                                    <div className="bg-Black text-White p-1.5 rounded-full text-sm w-5 h-5 flex items-center justify-center">
                                         {tasks.length}
                                     </div>
                                     {/* Label */}
-                                    <span className="text-sm font-medium text-black">Ongoing Tasks</span>
+                                    <span className="text-[11px] font-medium text-black">Ongoing Tasks</span>
                                 </AccordionTrigger>
-                                <AccordionContent>
-                                    <ul>
-                                        <li>Task1</li>
-                                        <li>Task2</li>
-                                        <li>Task3</li>
-                                    </ul>
+
+                                <AccordionContent className="space-y-2 mt-2">
+                                    {tasks.map((task, index) => (
+                                        <div
+                                            key={index}
+                                            className="border border-gray-300 rounded-xl p-1 text-sm bg-gray-50 hover:cursor-pointer  group transition-all duration-300"
+                                        >
+                                            <div className="text-xs text-gray-500 group-hover:text-Black">{task.heading}</div>
+                                        </div>
+                                    ))}
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
                     </div>
+
                     {/* Mytask cards */}
                     <div className='flex flex-col gap-1'>
                         {tasks.map((task, index) => (
