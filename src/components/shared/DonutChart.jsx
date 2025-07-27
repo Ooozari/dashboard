@@ -1,5 +1,4 @@
 'use client';
-
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { ArrowUpRight } from 'lucide-react';
 

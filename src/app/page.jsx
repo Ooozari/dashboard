@@ -1,6 +1,5 @@
 import React from 'react'
-import Link from 'next/Link'
-
+import Link from 'next/link'
 function Page() {
     return (
         <div className='h-screen flex items-center justify-center font-bold text-neutral-600 '>
